@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:elevation="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewWork"
+        android:alpha="0.87"
+        android:text="00:00:00"
+        android:textSize="@dimen/material_text_display3"
+        android:textColor="#000000"
+        android:layout_below="@+id/textView10"
+        android:layout_alignLeft="@+id/textViewRest"
+        android:layout_alignStart="@+id/textViewRest"
+        android:layout_marginBottom="10sp"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:clickable="true"
+        android:src="@drawable/ic_navigate_next_white_24dp"
+        android:id="@+id/FAB_main"
+        android:layout_alignBottom="@+id/setsAdd"
+        android:layout_toEndOf="@+id/textViewRest" />
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewRest"
+        android:alpha="0.87"
+        android:text="00:00:00"
+        android:textSize="@dimen/material_text_display3"
+        android:textColor="#000000"
+        android:layout_below="@+id/textView11"
+        android:layout_alignLeft="@+id/textView14"
+        android:layout_alignStart="@+id/textView14"
+        android:layout_marginBottom="10sp"
+        android:elevation="10dp" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textViewWarmUp"
+        android:alpha="0.87"
+        android:text="00:00:00"
+        android:textSize="@dimen/material_text_display3"
+        android:textColor="#000000"
+        android:layout_below="@+id/textView14"
+        android:layout_centerHorizontal="true"
+        android:elevation="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Work"
+        android:id="@+id/textView10"
+        android:textSize="@dimen/material_text_display1"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@+id/textViewWork"
+        android:layout_alignStart="@+id/textViewWork" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rest"
+        android:layout_marginTop="0dp"
+        android:id="@+id/textView11"
+        android:textSize="@dimen/material_text_display1"
+        android:layout_below="@+id/textViewWork"
+        android:layout_alignLeft="@+id/textViewWork"
+        android:layout_alignStart="@+id/textViewWork" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Warm Up"
+        android:id="@+id/textView14"
+        android:textSize="@dimen/material_text_display1"
+        android:layout_below="@+id/textViewRest"
+        android:layout_toStartOf="@+id/setsAdd" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_black_24dp"
+        android:id="@+id/workAdd"
+        android:background="#ffffff"
+        android:alpha="0.54"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/textViewWork"
+        android:layout_toEndOf="@+id/textViewWork"
+        android:layout_alignBottom="@+id/textViewWork" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_remove_black_24dp"
+        android:id="@+id/workRemove"
+        android:background="#ffffff"
+        android:layout_below="@+id/textView10"
+        android:layout_toStartOf="@+id/textViewWork"
+        android:layout_alignBottom="@+id/textViewWork"
+        android:alpha="0.54"
+        android:visibility="invisible"/>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_black_24dp"
+        android:id="@+id/warmUpAdd"
+        android:background="#ffffff"
+        android:alpha="0.54"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/textViewWarmUp"
+        android:layout_alignStart="@+id/FAB_main"
+        android:layout_alignBottom="@+id/textViewWarmUp"
+        android:layout_alignEnd="@+id/restAdd" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_remove_black_24dp"
+        android:id="@+id/restRemove"
+        android:background="#ffffff"
+        android:maxWidth="30dp"
+        android:minWidth="30dp"
+        android:layout_below="@+id/textView11"
+        android:layout_toStartOf="@+id/textViewRest"
+        android:layout_alignBottom="@+id/textViewRest"
+        android:alpha="0.54"
+        android:visibility="invisible"/>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_remove_black_24dp"
+        android:id="@+id/warmUpRemove"
+        android:background="#ffffff"
+        android:layout_alignBottom="@+id/textViewWarmUp"
+        android:layout_below="@+id/textView14"
+        android:layout_alignStart="@+id/restRemove"
+        android:alpha="0.54"
+        android:visibility="invisible"/>
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_black_24dp"
+        android:id="@+id/restAdd"
+        android:background="#ffffff"
+        android:alpha="0.54"
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/textViewRest"
+        android:layout_toEndOf="@+id/textViewRest"
+        android:layout_alignBottom="@+id/textViewRest" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sets"
+        android:id="@+id/textView9"
+        android:layout_below="@+id/textViewWarmUp"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/material_text_display1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/textViewSets"
+        android:alpha="0.87"
+        android:textSize="@dimen/material_text_display3"
+        android:textColor="#000000"
+        android:layout_below="@+id/textView9"
+        android:layout_centerHorizontal="true"
+        android:elevation="10dp" />
+
+    <ImageButton
+        android:alpha="0.54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setsAdd"
+        android:src="@drawable/ic_add_black_24dp"
+        android:background="#ffffff"
+        android:visibility="invisible"
+        android:layout_below="@+id/textView9"
+        android:layout_toEndOf="@+id/textView9"
+        android:layout_alignBottom="@+id/textViewSets" />
+
+    <ImageButton
+        android:alpha="0.54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/setsRemove"
+        android:src="@drawable/ic_remove_black_24dp"
+        android:background="#ffffff"
+        android:layout_below="@+id/textView9"
+        android:layout_toStartOf="@+id/textView9"
+        android:layout_alignBottom="@+id/textViewSets"
+        android:visibility="invisible"/>
+
+
+</RelativeLayout>

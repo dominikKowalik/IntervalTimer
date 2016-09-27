@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:id="@+id/textViewTime"
+        android:fontFamily="sans-serif"
+        android:textSize="@dimen/material_text_display2"
+        android:alpha="0.87"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_below="@+id/textViewSets"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="52dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="warm up"
+        android:fontFamily="sans-serif"
+        android:id="@+id/textViewWarmUp"
+        android:textSize="@dimen/material_text_display2"
+        android:alpha="0.87"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_marginTop="58dp"
+        android:layout_below="@+id/progressBar"
+        android:layout_alignStart="@+id/textViewTime"
+        android:visibility="visible"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="rest"
+        android:fontFamily="sans-serif"
+        android:id="@+id/textViewRest"
+        android:textSize="@dimen/material_text_display2"
+        android:alpha="0.87"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_alignTop="@+id/textViewWarmUp"
+        android:layout_alignEnd="@+id/textViewSets"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="work"
+        android:fontFamily="sans-serif"
+        android:id="@+id/textViewWork"
+        android:textSize="@dimen/material_text_display2"
+        android:alpha="0.87"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_alignTop="@+id/textViewWarmUp"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="1/4"
+        android:id="@+id/textViewSets"
+        android:textSize="@dimen/material_text_display2"
+        android:layout_marginTop="46dp"
+        android:alpha="0.87"
+        android:textColor="@color/abc_primary_text_disable_only_material_light"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:indeterminate="false"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/colorPrimary"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/textViewTime"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:clickable="true"
+        android:src="@drawable/ic_pause_white_24dp"
+        android:id="@+id/fab_work"
+        android:layout_below="@+id/textViewWarmUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp" />
+
+
+</RelativeLayout>

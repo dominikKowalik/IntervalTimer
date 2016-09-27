@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Train Hard</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_while_workout">WhileWorkoutActivity</string>
+    <string name="title_activity_saved_trainings">SavedTrainingsActivity</string>
+    <string name="title_activity_main_prim">MainPrimActivity</string>
+
+    <string name="menu_settings">Menu Settings</string>
+    <string name="show_trainings">Show Trainings</string>
+
+    <string name="work_string">  work  </string>
+    <string name="rest_string">  rest  </string>
+    <string name="warm_up_string"> warm up </string>
+    <string name="end_string">end</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="saved_acitvity_text">click selected to start workout</string>
+
+</resources>
