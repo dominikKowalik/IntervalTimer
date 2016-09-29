@@ -23,6 +23,7 @@ public class WhileWorkoutActivity extends AppCompatActivity {
     boolean trainingEnded = false;
     boolean trainingPaused = false;
     private final Context context = this;
+    BackgroundWork backgroundWork;
     @SuppressWarnings( "deprecation" )
 
 
@@ -86,7 +87,8 @@ public class WhileWorkoutActivity extends AppCompatActivity {
          super.onCreate(savedInstanceState);
 
          interval = (Interval) getIntent().getSerializableExtra("CURRENT_INTERVAL");
-         final BackgroundWork backgroundWork = new BackgroundWork(this,interval,handler);
+
+        backgroundWork = new BackgroundWork(this,interval,handler);
 
         try {
             Thread.sleep(200);
@@ -94,7 +96,7 @@ public class WhileWorkoutActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        new IncomingCall();
+        new IncomingCall(backgroundWork);
 
         setContentView(R.layout.while_workout_activity_material);
 
@@ -114,23 +116,23 @@ public class WhileWorkoutActivity extends AppCompatActivity {
             public void onClick(View v){
                 if(trainingEnded){
                     finish();
-                }else if(trainingPaused) {
-                   BackgroundWork.setRunningVarInOpposingState();
+                }else if(!trainingPaused) {
+                    backgroundWork.setRunningVarInOpposingState();
                     FAB.setImageResource(R.drawable.ic_play_arrow_white_24dp);
                     trainingPaused = true;
                 }else{
-                    BackgroundWork.setRunningVarInOpposingState();
+                    backgroundWork.setRunningVarInOpposingState();
                     FAB.setImageResource(R.drawable.ic_pause_white_24dp);
                     trainingPaused = false;
                 }
             }
         });
-
-
-
-
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        backgroundWork.setRunningVarFalse();
 
-
+    }
 }

@@ -15,6 +15,7 @@ import android.telephony.TelephonyManager;
 
 public class IncomingCall extends BroadcastReceiver{
 
+    BackgroundWork backgroundWork;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -23,10 +24,18 @@ public class IncomingCall extends BroadcastReceiver{
         tm.listen(PhoneListener, PhoneStateListener.LISTEN_CALL_STATE);
     }
 
+    public IncomingCall(){
+
+    }
+
+    public IncomingCall(BackgroundWork backgroundWork){
+        this.backgroundWork = backgroundWork;
+    }
+
     private class MyPhoneStateListener extends PhoneStateListener {
         public void onCallStateChanged(int state, String incomingNumber) {
 
-            BackgroundWork.setRunningVarFalse();
+            backgroundWork.setRunningVarFalse();
 
         }
     }

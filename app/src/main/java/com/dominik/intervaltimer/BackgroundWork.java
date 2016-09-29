@@ -15,7 +15,7 @@ public class BackgroundWork extends Thread {
     private static Handler handler;
     private Integer MEDIA_ID =  R.raw.bell;
     private Integer timeGoOff = 0;
-    volatile static boolean running = true;
+    volatile boolean running = true;
 
 
 
@@ -111,7 +111,7 @@ public class BackgroundWork extends Thread {
     }
 }
 
-    public static void sendMessageString(String mes, Handler handler, Integer arg1, Integer arg2) {
+    public void sendMessageString(String mes, Handler handler, Integer arg1, Integer arg2) {
 
         Message message = new Message();
         message.obj = mes;
@@ -166,8 +166,8 @@ public class BackgroundWork extends Thread {
         }
     }
 
-    public static void setRunningVarInOpposingState() { running = !running; }
-    public static void setRunningVarFalse(){running = false;  sendMessageString("pause",handler,null,null);}
+    public  void setRunningVarInOpposingState() { running = !running; }
+    public  void setRunningVarFalse(){running = false;  sendMessageString("pause",handler,null,null);}
 
 
 
