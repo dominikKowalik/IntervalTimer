@@ -153,6 +153,8 @@ public class SavedTrainingsActivity extends AppCompatActivity {
         return true;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
 

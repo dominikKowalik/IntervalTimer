@@ -16,6 +16,7 @@ public class BackgroundWork extends Thread {
     private Integer MEDIA_ID =  R.raw.bell;
     private Integer timeGoOff = 0;
     volatile boolean running = true;
+    volatile boolean kill = false;
 
 
 
@@ -63,6 +64,9 @@ public class BackgroundWork extends Thread {
         sendMessageString(actualSet.toString(),handler, null,null);
 
     while (trainingTime > 0) {
+
+        if(kill)return;
+
         if (running) {
             sendMessageString(interval.getDurationString(currentTimeOfCurrentSection), handler, null, null);
             sendMessageString(interval.getDurationString(trainingTime) + " ", handler, null, null);
@@ -168,6 +172,7 @@ public class BackgroundWork extends Thread {
 
     public  void setRunningVarInOpposingState() { running = !running; }
     public  void setRunningVarFalse(){running = false;  sendMessageString("pause",handler,null,null);}
+    public void kill(){ kill = true; }
 
 
 

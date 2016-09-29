@@ -1,11 +1,14 @@
 package com.dominik.intervaltimer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -24,9 +27,9 @@ public class WhileWorkoutActivity extends AppCompatActivity {
     boolean trainingPaused = false;
     private final Context context = this;
     BackgroundWork backgroundWork;
+    DataBaseAdapter dbAdapter;
+
     @SuppressWarnings( "deprecation" )
-
-
 
     private Handler handler = new Handler(){
         @Override
@@ -84,9 +87,11 @@ public class WhileWorkoutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-         super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
-         interval = (Interval) getIntent().getSerializableExtra("CURRENT_INTERVAL");
+        dbAdapter = new DataBaseAdapter(context);
+
+        interval = (Interval) getIntent().getSerializableExtra("CURRENT_INTERVAL");
 
         backgroundWork = new BackgroundWork(this,interval,handler);
 
@@ -133,6 +138,27 @@ public class WhileWorkoutActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         backgroundWork.setRunningVarFalse();
+        backgroundWork.kill();
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_while_workout, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.action_show_trainings_while_workout){
+            Interval [] intervals = dbAdapter.getTrainings();
+            Intent intent = new Intent(context, SavedTrainingsActivity.class);
+            intent.putExtra("TRAININGS", intervals);
+            startActivity(intent);
+        }
+
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 }

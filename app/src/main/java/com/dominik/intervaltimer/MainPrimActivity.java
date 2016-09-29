@@ -251,13 +251,14 @@ public class MainPrimActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_save_training){
-            dbAdapter.open();
 
+            dbAdapter.open();
             if(dbAdapter.insert(interval)) {
                 showText("Zapisano",this);
             } else {
                 showText("Nie Zapisano",this);
             }
+
         }else if(id == R.id.action_show_trainings){
 
             Interval [] intervals = dbAdapter.getTrainings();
