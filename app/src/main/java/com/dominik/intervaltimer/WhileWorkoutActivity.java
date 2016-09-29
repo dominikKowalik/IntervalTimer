@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class WhileWorkoutActivity extends AppCompatActivity {
 
 
@@ -40,24 +42,24 @@ public class WhileWorkoutActivity extends AppCompatActivity {
             }else if(messageString.length() == 9 ){
 
             }
-            else if(messageString == "work"){
+            else if(messageString.equals("work")){
                 textViewRestEnd.setVisibility(View.INVISIBLE);
                 textViewWarmUp.setVisibility(View.INVISIBLE);
                 textViewWork.setVisibility(View.VISIBLE);
                 textViewWork.setText(getResources().getText(R.string.work_string));
             }
-            else if(messageString == "rest"){
+            else if(messageString.equals("rest")){
                textViewWarmUp.setVisibility(View.INVISIBLE);
                textViewWork.setVisibility(View.INVISIBLE);
                textViewRestEnd.setVisibility(View.VISIBLE);
                textViewRestEnd.setText(getResources().getText(R.string.rest_string));
 
-            }else if(messageString == "warm"){
+            }else if(messageString.equals("warm")){
                 textViewRestEnd.setVisibility(View.INVISIBLE);
                 textViewWork.setVisibility(View.INVISIBLE);
                 textViewWarmUp.setVisibility(View.VISIBLE);
                 textViewWarmUp.setText(getResources().getText(R.string.warm_up_string));
-           }else if(messageString == "end"){
+           }else if(Objects.equals(messageString, "end")){
                textViewWarmUp.setVisibility(View.INVISIBLE);
                textViewWork.setVisibility(View.INVISIBLE);
                textViewRestEnd.setVisibility(View.VISIBLE);
@@ -65,10 +67,10 @@ public class WhileWorkoutActivity extends AppCompatActivity {
                FAB.setImageResource(R.drawable.ic_arrow_back_white_24dp);
                trainingEnded = true;
             }
-            else if(messageString == "update"){
+            else if(Objects.equals(messageString, "update")){
                 progressBar.setMax(msg.arg1);
                 progressBar.setProgress(msg.arg2);
-            }else if(messageString == "pause"){
+            }else if(Objects.equals(messageString, "pause")){
                trainingPaused = true;
                FAB.setImageResource(R.drawable.ic_play_arrow_white_24dp);
            }else{
@@ -110,14 +112,14 @@ public class WhileWorkoutActivity extends AppCompatActivity {
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                if(trainingEnded == true){
+                if(trainingEnded){
                     finish();
-                }else if(trainingPaused == false) {
-                    backgroundWork.setRunningVarInOpposingState();
+                }else if(trainingPaused) {
+                   BackgroundWork.setRunningVarInOpposingState();
                     FAB.setImageResource(R.drawable.ic_play_arrow_white_24dp);
                     trainingPaused = true;
                 }else{
-                    backgroundWork.setRunningVarInOpposingState();
+                    BackgroundWork.setRunningVarInOpposingState();
                     FAB.setImageResource(R.drawable.ic_pause_white_24dp);
                     trainingPaused = false;
                 }

@@ -88,7 +88,7 @@ public class BackgroundWork extends Thread {
 
                 sendMessageString("work", handler, null, null);
 
-            } else if (currentTimeOfCurrentSection == 0 && timeOnBoolean == true) {
+            } else if (currentTimeOfCurrentSection == 0 && timeOnBoolean) {
                 timeOnBoolean = false;
                 timeOffBoolean = true;
                 currentTimeOfCurrentSection = timeOff;
@@ -96,7 +96,7 @@ public class BackgroundWork extends Thread {
 
                 sendMessageString("rest", handler, null, null);
 
-            } else if (currentTimeOfCurrentSection == 0 && timeOffBoolean == true) {
+            } else if (currentTimeOfCurrentSection == 0 && timeOffBoolean) {
                 timeOffBoolean = false;
                 timeOnBoolean = true;
                 currentTimeOfCurrentSection = timeOn;
@@ -126,7 +126,7 @@ public class BackgroundWork extends Thread {
 
     public void play(MediaPlayer mediaPlayer, Boolean firstPlay){
 
-        if(firstPlay == true){
+        if(firstPlay){
             mediaPlayer.start();
         }
         else {

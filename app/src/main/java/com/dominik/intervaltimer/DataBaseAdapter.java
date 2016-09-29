@@ -54,8 +54,7 @@ public class DataBaseAdapter {
 
     private Cursor getCursor(){
         String[] columns = { KEY_ID, TRAINING_TIME, TIME_ON, TIME_OFF,SETS,WARM_UP_TIME };
-        Cursor cursor = db.query(dataBaseTableName, columns,null,null,null,null,null);
-        return cursor;
+       return db.query(dataBaseTableName, columns,null,null,null,null,null);
     }
 
     public Interval [] getTrainings(){
@@ -193,8 +192,6 @@ public class DataBaseAdapter {
     public void onCreate(SQLiteDatabase db) {
             db.execSQL(DB_CREATE);
     }
-
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

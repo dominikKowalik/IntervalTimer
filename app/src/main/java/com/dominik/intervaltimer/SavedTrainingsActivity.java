@@ -130,7 +130,7 @@ public class SavedTrainingsActivity extends AppCompatActivity {
         public void onBindViewHolder(ViewHolder holder, int position) {
             holder.mTextView.setText(mDataSet[position]);
 
-            if(ifVisible == true){
+            if(ifVisible){
                 holder.imageButton.setVisibility(View.VISIBLE);
             }else {
                 holder.imageButton.setVisibility(View.INVISIBLE);

@@ -47,11 +47,10 @@ public Interval(){
     }
 
      String getDurationString() {
-        Integer seconds = new Integer(trainingTime);
 
-        int hours = seconds / 3600;
-        int minutes = (seconds % 3600) / 60;
-        seconds = seconds % 60;
+        int hours = trainingTime / 3600;
+        int minutes = (trainingTime % 3600) / 60;
+        int seconds = trainingTime % 60;
 
         return twoDigitString(hours) + ":" + twoDigitString(minutes) + ":" + twoDigitString(seconds);
     }
